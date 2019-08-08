@@ -1,6 +1,6 @@
 # SVFX: Using Random Forests to Prioritize Structural Variants
 
-SVFX is a machine leraning based tool to assign pathogenic score to large deletions and duplications. This framework is highly flexible and can be easily extended to other SV categories and diseases.
+SVFX is a machine leraning based tool to assign pathogenic score to large deletions and duplications.
 
 ## necessary python package installations:
 pip install scikit-allel
