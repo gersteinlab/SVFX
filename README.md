@@ -3,13 +3,13 @@
 SVFX is a machine leraning based tool to assign pathogenic score to large deletions and duplications. This framework is highly flexible and can be easily extended to other SV categories and diseases.
 
 ## necessary python package installations:
-pip install scikit-allel –-user
+pip install scikit-allel
 
-pip install pyBigWig –-user
+pip install pyBigWig
 
-pip install argparse –-user
+pip install argparse
 
-pip install sklearn --user
+pip install sklearn
 
 ## `generate_feature_matrix.py`
 
