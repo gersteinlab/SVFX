@@ -1,5 +1,13 @@
 # SVFX: Using Random Forests to Prioritize Structural Variants
 
+SVFX is a machine leraning based tool to assign pathogenic score to large deletions and duplications. This framework is highly flexible and can be easily extended to other SV categories and diseases.
+
+## necessary python package installations:
+pip install scikit-allel –-user
+pip install pyBigWig –-user
+pip install argparse –-user
+pip install sklearn --user
+
 ## `generate_feature_matrix.py`
 
 Usage: `python3 generate_feature_matrix.py -v [SV files in VCF format] -c [SV files in tab-separated coordinate format] -b [Feature files in BigWig format] -g [Gene coordinates for overlap features] -o [File root for output] -d [SV files in BED format] -f [True if class label 1, False otherwise] -t [SV type (e.g. DEL, DUP, INV)]`
