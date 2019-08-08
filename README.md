@@ -4,8 +4,11 @@ SVFX is a machine leraning based tool to assign pathogenic score to large deleti
 
 ## necessary python package installations:
 pip install scikit-allel –-user
+
 pip install pyBigWig –-user
+
 pip install argparse –-user
+
 pip install sklearn --user
 
 ## `generate_feature_matrix.py`
