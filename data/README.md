@@ -1,6 +1,6 @@
 This directory consist of annotations files that were utilized to generate feature matrix.
 
-Full featureset used in our analysis is listed below.
+Full featureset used in our analysis is listed below ( also reported in supplement table S1).
 
 Tissue specific features were downloaded from ECNODE, iHEC and Epigenome Roadmap data protals.
 
