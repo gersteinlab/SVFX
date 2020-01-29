@@ -2,9 +2,12 @@ This directory consist of annotations files that were utilized to generate featu
 
 Full featureset used in our analysis is listed below ( also reported in supplement table S1).
 
-Tissue specific features were downloaded from ECNODE, iHEC and Epigenome Roadmap data protals.
+Tissue specific features were downloaded from ENCODE, iHEC and Epigenome Roadmap data protals.
+
+**SignalFileDownload.txt lists out url for downloading H1ESC signal files for generic germline SV analysis**
 
 
+**List of Features in SVFX**
 gcPercentage
 
 H3K27ac signal
