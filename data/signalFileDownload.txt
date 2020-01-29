@@ -1,0 +1,15 @@
+########### for germline analysis ###########
+
+H1ESC
+
+DHS	https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E003-DNase.pval.signal.bigwig
+H3K4me1	https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E003-H3K4me1.pval.signal.bigwig
+H3K4me3	https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E003-H3K4me3.pval.signal.bigwig
+H3K9me3	https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E003-H3K9me3.pval.signal.bigwig
+H3K27ac	https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E003-H3K27ac.pval.signal.bigwig
+H3K27me3	https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E003-H3K27me3.pval.signal.bigwig
+H3K36me3	https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E003-H3K36me3.pval.signal.bigwig
+WGBS	https://epigenomesportal.ca/tracks/Roadmap/hg19/28736.Roadmap.SRS004212_Combined_Libraries_424.WGB-Seq.signal.bigWig
+CTCF	https://www.encodeproject.org/files/ENCFF225MAO/@@download/ENCFF225MAO.bigWig
+PhyloP http://hgdownload.cse.ucsc.edu/goldenpath/hg19/phyloP100way/hg19.100way.phyloP100way.bw
+repTiming ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM923nnn/GSM923451/suppl/GSM923451_hg19_wgEncodeUwRepliSeqGm12878WaveSignalRep1.bigWig
