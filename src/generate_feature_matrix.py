@@ -277,19 +277,18 @@ def normalize(output_file, randomized_num, length_flag):
         for matrix in matrices:
             vals = matrices[matrix][column].values[:]
             column_matrix.append(vals)
-        print(np.max(np.abs(np.array(column_matrix))))
+
         if np.max(np.abs(np.array(column_matrix))) > 0:
             zs = stats.zscore(np.array(column_matrix).flatten())
-            print(zs)
+
             for i in range(len(matrices.keys())):
                 skip = len(orig_matrix[column].values)
-                print(zs[skip*i:skip*i+skip])
+
                 matrices[list(matrices.keys())[i]][column] = zs[skip*i:skip*i+skip]
 
     matrices[output_file].to_csv(output_file.split('.')[0] + '_normalized.txt',
                                  index=False, sep="\t")
-    s = 'rm ' + output_file + '_randomized*'
-    os.system(s)
+
 
 
 
@@ -339,4 +338,9 @@ if __name__ == '__main__':
                     blacklist_file=blacklist_file, length_flag=length_flag)
         if norm:
             normalize(output_file=output_file, randomized_num=randomized_num, length_flag=length_flag)
+    print('Cleaning up temporary files...')
+    cleanup_cmd1 = 'rm ' + output_file + '_randomized*'
+    cleanup_cmd2 = 'rm ' + coord_file.split('.')[0] + '_randomized*'
+    os.system(cleanup_cmd1)
+    os.system(cleanup_cmd2)
     print("Feature matrix generation complete!")
