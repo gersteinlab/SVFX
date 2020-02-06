@@ -237,9 +237,9 @@ def randomize(root_file, randomized_num, ref_genome, blacklist_file):
     base = root_file.split('.')[0]
     for iter in range(randomized_num):
         if blacklist_file:
-            randomized_sv = '''bedtools shuffle -i ''' + root_file + ''' -g ''' + reference_genome + ''' -chrom -excl ''' + blacklist_file + ''' | awk '{print "chr"$1\"\\t"$2\"\\t"$3}' > '''+ base + '''_randomized_''' + str(iter) + '.txt'
+            randomized_sv = '''bedtools shuffle -i ''' + root_file + ''' -g ''' + reference_genome + ''' -chrom -excl ''' + blacklist_file + ''' | awk '{print $1\"\\t"$2\"\\t"$3}' > '''+ base + '''_randomized_''' + str(iter) + '.txt'
         else:
-            randomized_sv = '''bedtools shuffle -i ''' + root_file + ''' -g ''' + reference_genome + ''' -chrom | awk '{print "chr"$1\"\\t"$2\"\\t"$3}' > '''+ base + '''_randomized_''' + str(iter) + '.txt'
+            randomized_sv = '''bedtools shuffle -i ''' + root_file + ''' -g ''' + reference_genome + ''' -chrom | awk '{print $1\"\\t"$2\"\\t"$3}' > '''+ base + '''_randomized_''' + str(iter) + '.txt'
         os.system(randomized_sv)
 
 
