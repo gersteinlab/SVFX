@@ -15,7 +15,7 @@ pip install sklearn
 
 Usage: `python3 generate_feature_matrix.py -c [SV files in tab-separated coordinate format (each line should start with chr)] -b [Feature files in BigWig format] -g [Coordinates for interval overlap-based features] -o [File root for output] -f [Present if class label 1, False otherwise] -t [SV type (e.g. DEL, DUP, INV)] -z [Present if matrix should be Z-Score normalized (length feature will not be normalized)] -r [Number of shuffled coordinates to generate for the randomization process] -rg [Reference genome index file - necessary for the -r flag] -l [If present, length will be included as a feature (and will be ignored during normalization)]`
 
-Sample command (run from the root directory): `python3 src/generate_feature_matrix.py -c data/sample_input_SV.txt -g data/gc19_pc.prom.nr.bed  data/gc19_pc.3utr.nr.bed data/gc19_pc.5utr.nr.bed data/gc19_pc.cds.nr.bed data/gc19_pc.ss.nr.bed data/sensitive.nc.bed data/ultra.conserved.hg19.bed data/wgEncodeBroadHmmGm12878HMM.Heterochrom.bed data/H1-ESC_Dixon2015-raw_TADs.bed -o sample_output_matrix -t DEL -z -r 1 -rg data/hs37d5.fa.gz.fai`
+Sample command (run from the root directory): `python3 src/generate_feature_matrix.py -c data/sample_input_SV.txt -g data/gc19_pc.prom.nr.bed  data/gc19_pc.3utr.nr.bed data/gc19_pc.5utr.nr.bed data/gc19_pc.cds.nr.bed data/gc19_pc.ss.nr.bed data/sensitive.nc.bed data/ultra.conserved.hg19.bed data/wgEncodeBroadHmmGm12878HMM.Heterochrom.bed data/H1-ESC_Dixon2015-raw_TADs.bed -o sample_output_matrix -t DEL -z -r 1 -rg data/hg19.fa.fai`
 
 Given an input list of structural variants, generates a matrix of feature values calculated from the given BigWig and coordinate-overlap files for input to a model.
 
