@@ -7,6 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import roc_auc_score, average_precision_score
 import argparse
+from sklearn.externals import joblib
 np.seterr(divide='ignore', invalid='ignore')
 
 # Argument parsing
@@ -32,6 +33,8 @@ n_trees = int(args.num_trees)
 m_depth = int(args.max_depth)
 m_samples_split = int(args.min_samples_split)
 
+print(cancer_indices)
+print(kg_indices)
 
 # Extracting feature data
 np.random.shuffle(cancer_indices)
@@ -78,7 +81,7 @@ for i in range(10):
 	y = targets[training_indices[i]]
 	y = y.astype("int")
 	model_list[i].fit(X, np.ravel(y))
-from sklearn.externals import joblib
+
 output = args.output_file.split('.')[0]
 
 # Saving the objects through joblib so they can be accessed later if needed
