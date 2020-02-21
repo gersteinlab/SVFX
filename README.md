@@ -23,6 +23,8 @@ Given an input list of structural variants, generates a matrix of feature values
 
 Usage: `python3 rf_model.py -i [input feature matrix] -d [File of indices of features to ignore (one per line)] -t [Index of the class label in the feature matrix] -n [Number of trees in the forest] -m [Maximum depth of a tree in the forest] -s [Minimum number of samples required to split an internal node] -c [Number of cancerous SV's in the matrix] -l [Total number of SV's in the matrix] -o [Output root filename]`
 
+Sample command: `python3 rf_model.py -i input_del_matrix.ZscoreNormalized.training.tsv -d remove_indices.txt -t 0 -n 150 -c 3613 -l 7225 -o output_model_`
+
 Given an input feature matrix, trains a set of 10 random forest classifiers on disjoint tenths of the dataset, then predicts class labels for each member of the dataset with the models that did not train on them. Saves the created models, as a Python list of trained sklearn models, to `[file root]_ten_models.pkl`. Saves the indices used to split the diseased data into tenths in `[file root]_cancer_indices.pkl`, and those used to split the control data in `[file root]_kg_indices.pkl`.
 
  Predictions on the training data (from the models that did not train on each specific SV) are outputted in dictionary format to `[file root]_predictions.pkl`. Finally, AU(ROC/PRC) on this data are calculated
