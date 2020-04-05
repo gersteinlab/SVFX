@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	rf_model
+	2
+
+[Mon Mar 23 21:41:15 2020]
+rule rf_model:
+    input: data/test_run_combined_matrix.txt
+    output: test_run_predictions.txt
+    jobid: 1
+
+[Mon Mar 23 21:42:28 2020]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Mon Mar 23 21:42:28 2020]
+localrule all:
+    input: test_run_predictions.txt
+    jobid: 0
+
+[Mon Mar 23 21:42:28 2020]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /Users/jagathvytheeswaran/SVFX/.snakemake/log/2020-03-23T214115.691428.snakemake.log

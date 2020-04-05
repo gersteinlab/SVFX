@@ -1,0 +1,17 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	generate_feature_matrix
+	1	rf_model
+	3
+
+[Fri Apr  3 14:46:42 2020]
+rule generate_feature_matrix:
+    input: data/GRCh37.nr_deletions.common.bed, data/GRCh37.nr_deletions.pathogenic.bed
+    output: data/real_data_run_combined_matrix.txt
+    jobid: 2
+

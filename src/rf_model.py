@@ -1,13 +1,12 @@
 # Relevant imports
 import numpy as np
-from sklearn.externals import joblib
+import joblib
 import pandas as pd
 import sklearn.model_selection
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import roc_auc_score, average_precision_score
 import argparse
-from sklearn.externals import joblib
 np.seterr(divide='ignore', invalid='ignore')
 
 # Argument parsing
@@ -18,29 +17,29 @@ parser.add_argument('-t', '--target', help='Target index')
 parser.add_argument('-n', '--num_trees', help='Number of trees in the forest')
 parser.add_argument('-m', '--max_depth', help='Maximum depth of a tree in the forest')
 parser.add_argument('-s', '--min_samples_split', help='Minimum number of samples required to split an internal node')
-parser.add_argument('-c', '--cancer_num', help='Number of Cancer SVs in the file')
+parser.add_argument('-c', '--disease_num', help='Number of diseased SVs in the file')
 parser.add_argument('-l', '--length', help='Total number of SVs in the file')
 parser.add_argument('-o', '--output_file', help='Output filename, without extension')
 args = parser.parse_args()
 
 # Constructing the data for the forest from the file and list of indices to ignore
 sv_data = pd.read_table(args.input_matrix)
-num_cancer = int(args.cancer_num)
+num_disease = int(args.disease_num)
 total_length = int(args.length)
-cancer_indices = np.arange(0, num_cancer)
-kg_indices = np.arange(num_cancer, total_length)
+disease_indices = np.arange(0, num_disease)
+kg_indices = np.arange(num_disease, total_length)
 n_trees = int(args.num_trees)
 m_depth = int(args.max_depth)
 m_samples_split = int(args.min_samples_split)
 
-print(cancer_indices)
+print(disease_indices)
 print(kg_indices)
 
 # Extracting feature data
-np.random.shuffle(cancer_indices)
+np.random.shuffle(disease_indices)
 np.random.shuffle(kg_indices)
 kg_trains = np.array_split(kg_indices, 10)
-cancer_trains = np.array_split(cancer_indices, 10)
+disease_trains = np.array_split(disease_indices, 10)
 remove_inds = []
 with open(args.delete) as inds:
 	try:
@@ -71,7 +70,7 @@ for i in range(total_length):
 	scores[i] = []
 
 # The set of training indices for each of the 10 models
-training_indices = [np.concatenate([cancer_trains[i], kg_trains[i]]) for i in range(10)]
+training_indices = [np.concatenate([disease_trains[i], kg_trains[i]]) for i in range(10)]
 
 # Training the ten models on disjoint tenths of the dataset
 for i in range(10):
@@ -86,7 +85,7 @@ output = args.output_file.split('.')[0]
 
 # Saving the objects through joblib so they can be accessed later if needed
 joblib.dump(model_list, output + '_ten_models.pkl')
-joblib.dump(cancer_trains, output + '_cancer_indices.pkl')
+joblib.dump(disease_trains, output + '_disease_indices.pkl')
 joblib.dump(kg_trains, output + '_kg_indices.pkl')
 
 # Making predictions

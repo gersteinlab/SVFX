@@ -1,0 +1,33 @@
+run_id: real_data_run
+
+coordinates:
+  control: data/control_coords.txt
+  disease: data/disease_coords.txt
+
+matrix_params:
+  bigwig_files:
+  overlap_coordinate_files:
+    - data/gc19_pc.prom.nr.bed
+    - data/gc19_pc.3utr.nr.bed
+    - data/gc19_pc.5utr.nr.bed
+    - data/gc19_pc.cds.nr.bed
+    - data/gc19_pc.ss.nr.bed
+    - data/sensitive.nc.bed
+    - data/ultra.conserved.hg19.bed
+    - data/wgEncodeBroadHmmGm12878HMM.Heterochrom.bed
+    - data/H1-ESC_Dixon2015-raw_TADs.bed
+  normalized: True
+  variant_type: DEL
+  ref_genome: data/hg19.fa.fai
+  randomized_num: 5
+
+output_matrix:
+  control: data/control_matrix
+  disease: data/disease_matrix
+
+model_params:
+  columns_to_remove: remove_inds.txt
+  class_label_index: 0
+  num_trees: 150
+  max_depth: 100
+  min_samples_split: 2

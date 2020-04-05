@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	generate_feature_matrix
+	1	rf_model
+	3
+
+[Mon Mar 23 20:29:23 2020]
+rule generate_feature_matrix:
+    input: data/control_coords.txt, data/disease_coords.txt
+    output: data/test_run_combined_matrix.txt
+    jobid: 2
+
+[Mon Mar 23 20:29:42 2020]
+Finished job 2.
+1 of 3 steps (33%) done
+
+[Mon Mar 23 20:29:42 2020]
+rule rf_model:
+    input: data/test_run_combined_matrix.txt
+    output: test_run_predictions.txt
+    jobid: 1
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 14 of /Users/jagathvytheeswaran/SVFX/Snakefile:
+Job completed successfully, but some output files are missing. Missing files after 5 seconds:
+test_run_predictions.txt
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/jagathvytheeswaran/SVFX/.snakemake/log/2020-03-23T202922.949276.snakemake.log

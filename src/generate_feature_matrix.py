@@ -1,9 +1,7 @@
 import argparse
-from Bio import SeqIO
 import csv
 import sys
 import pyBigWig as pbw
-import tools
 import find_overlap
 import subprocess
 import os
@@ -24,19 +22,6 @@ def mad(lst, avg):
             elem = 0
         ret.append(abs(float(elem) - avg))
     return sum(ret) / len(ret)
-
-'''Convert a VCF file to a TSV file of coordinates '''
-def vcf_to_coords(vcf_file, output_file):
-    # Create a VCF Reader object for the VCF file
-    reader = tools.get_reader(vcf_file)
-    with open(output_file, 'w') as out:
-        # Write the coordinates in TSV form
-        for i in range(len(reader['variants/SVLEN'])):
-            start = reader['variants/POS'][i]
-            chrom = 'chr' + reader['variants/CHROM'][i]
-            end = str(max(int(reader['variants/SVLEN'][i]) + int(start), int(reader['variants/END'][i])))
-            af = reader['variants/AF'][i][0]
-            out.write(str(chrom) + '\t' + str(start) + '\t' + str(end) + '\t' + str(af) + '\n')
 
 '''Convert a CSV file to a TSV file of coordinates '''
 def csv_to_coords(csv_filename):

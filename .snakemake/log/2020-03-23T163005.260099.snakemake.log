@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 6 of /Users/jagathvytheeswaran/SVFX/Snakefile:
+Missing input files for rule generate_feature_matrix:
+control_coords.txt
