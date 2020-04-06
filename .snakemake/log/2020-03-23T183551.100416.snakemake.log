@@ -1,0 +1,40 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	generate_feature_matrix
+	1	merge_matrices
+	3
+
+[Mon Mar 23 18:35:51 2020]
+rule generate_feature_matrix:
+    input: data/control_coords.txt, data/disease_coords.txt
+    output: data/control_matrix_normalized.txt, data/disease_matrix_normalized.txt
+    jobid: 2
+
+[Mon Mar 23 18:36:02 2020]
+Finished job 2.
+1 of 3 steps (33%) done
+
+[Mon Mar 23 18:36:02 2020]
+rule merge_matrices:
+    input: data/control_matrix_normalized.txt, data/disease_matrix_normalized.txt
+    output: data/combined_matrix.txt
+    jobid: 1
+
+[Mon Mar 23 18:36:02 2020]
+Finished job 1.
+2 of 3 steps (67%) done
+
+[Mon Mar 23 18:36:02 2020]
+localrule all:
+    input: data/combined_matrix.txt
+    jobid: 0
+
+[Mon Mar 23 18:36:02 2020]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /Users/jagathvytheeswaran/SVFX/.snakemake/log/2020-03-23T183551.100416.snakemake.log

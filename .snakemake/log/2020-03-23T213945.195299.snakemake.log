@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	rf_model
+	2
+
+[Mon Mar 23 21:39:45 2020]
+rule rf_model:
+    input: data/test_run_combined_matrix.txt
+    output: test_run_predictions.txt
+    jobid: 1
+
+[Mon Mar 23 21:39:47 2020]
+Error in rule rf_model:
+    jobid: 1
+    output: test_run_predictions.txt
+
+RuleException:
+CalledProcessError in line 20 of /Users/jagathvytheeswaran/SVFX/Snakefile:
+Command 'set -euo pipefail;  /usr/local/opt/python/bin/python3.6 /Users/jagathvytheeswaran/SVFX/.snakemake/scripts/tmpqvei_7p9.rfm_script.py' returned non-zero exit status 1.
+  File "/Users/jagathvytheeswaran/SVFX/Snakefile", line 20, in __rule_rf_model
+  File "/usr/local/Cellar/python/3.6.5_1/Frameworks/Python.framework/Versions/3.6/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/jagathvytheeswaran/SVFX/.snakemake/log/2020-03-23T213945.195299.snakemake.log

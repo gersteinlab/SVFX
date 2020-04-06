@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 3 of /Users/jagathvytheeswaran/SVFX/Snakefile:
+Missing input files for rule all:
+data/combined_matrix.txt

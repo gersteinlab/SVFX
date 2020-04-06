@@ -1,0 +1,3 @@
+KeyError in line 8 of /Users/jagathvytheeswaran/SVFX/Snakefile:
+'coordinates'
+  File "/Users/jagathvytheeswaran/SVFX/Snakefile", line 8, in <module>

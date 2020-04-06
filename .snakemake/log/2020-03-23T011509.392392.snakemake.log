@@ -1,0 +1,28 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	generate_feature_matrix
+	1	merge_matrices
+	3
+
+[Mon Mar 23 01:15:09 2020]
+rule generate_feature_matrix:
+    input: data/control_coords.txt, data/diseased_coords.txt
+    output: control_matrix_normalized.txt, diseased_matrix_normalized.txt
+    jobid: 2
+
+[Mon Mar 23 01:15:11 2020]
+Error in rule generate_feature_matrix:
+    jobid: 2
+    output: control_matrix_normalized.txt, diseased_matrix_normalized.txt
+    shell:
+        python3 src/generate_feature_matrix.py -c data/control_coords.txt data/diseased_coords.txt -g data/gc19_pc.prom.nr.bed data/gc19_pc.3utr.nr.bed data/gc19_pc.5utr.nr.bed data/gc19_pc.cds.nr.bed data/gc19_pc.ss.nr.bed data/sensitive.nc.bed data/ultra.conserved.hg19.bed data/wgEncodeBroadHmmGm12878HMM.Heterochrom.bed data/H1-ESC_Dixon2015-raw_TADs.bed -o data/control_coords.txt data/diseased_coords.txt_matrix -t DEL -z -r 1 -rg data/hg19.fa.fai 
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/jagathvytheeswaran/SVFX/.snakemake/log/2020-03-23T011509.392392.snakemake.log
