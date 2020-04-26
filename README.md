@@ -62,10 +62,10 @@ For example, if you have a list of coordinates and just want to generate the fea
 Usage of the individual programs in the pipeline is explained below.
 
 ### necessary python package installations:
-pip3 install scikit-allel
-pip3 install pyBigWig
-pip3 install argparse
-pip3 install sklearn
+`pip3 install scikit-allel`
+`pip3 install pyBigWig`
+`pip3 install argparse`
+`pip3 install sklearn`
 
 ### `generate_feature_matrix.py`
 
