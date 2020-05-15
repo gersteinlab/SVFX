@@ -7,6 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import roc_auc_score, average_precision_score
 import argparse
+from tqdm import tqdm
 np.seterr(divide='ignore', invalid='ignore')
 
 # Argument parsing
@@ -32,8 +33,6 @@ n_trees = int(args.num_trees)
 m_depth = int(args.max_depth)
 m_samples_split = int(args.min_samples_split)
 
-print(disease_indices)
-print(kg_indices)
 
 # Extracting feature data
 np.random.shuffle(disease_indices)
@@ -73,8 +72,8 @@ for i in range(total_length):
 training_indices = [np.concatenate([disease_trains[i], kg_trains[i]]) for i in range(10)]
 
 # Training the ten models on disjoint tenths of the dataset
-for i in range(10):
-	print("Fitting model " + str(i))
+print("Fitting models...")
+for i in tqdm(range(10)):
 	model_list.append(RandomForestClassifier(n_estimators=n_trees, max_depth=m_depth, min_samples_split=m_samples_split))
 	X = data[training_indices[i], :]
 	y = targets[training_indices[i]]
@@ -91,11 +90,11 @@ joblib.dump(kg_trains, output + '_kg_indices.pkl')
 # Making predictions
 num_pred = 9 * total_length
 so_far = 1
+print("Making predictions using each model...")
 for i in range(10):
 	model = model_list[i]
-	for j in range(total_length):
+	for j in tqdm(range(total_length)):
 		if j not in training_indices[i]:
-			print("Making prediction " + str(so_far) + " of " + str(num_pred))
 			scores[j].append(model.predict_proba(data[j, :].reshape(1, -1)))
 			so_far += 1
 
