@@ -4,8 +4,13 @@ SVFX is a machine learning based tool to assign pathogenic scores to large delet
 
 ## Setup
 
-Install `conda` using these [directions](https://docs.conda.io/projects/conda/en/latest/user-guide/install/macos.html), then activate the provided environment with
-`conda env create -f SVFXenv.yml && conda activate SVFXenv`.
+Install `conda` using these [directions](https://docs.conda.io/projects/conda/en/latest/user-guide/install/).
+
+On MacOS, you can activate the provided environment with
+`conda env create -f SVFXenv.yml && conda activate SVFXenv`
+
+otherwise, run
+`conda env create -f SVFXenv_all_platforms.yml && conda activate SVFXenv`
 
 The SVFX pipeline requires Python3.6+.
 
